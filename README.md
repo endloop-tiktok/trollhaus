@@ -1,15 +1,14 @@
 
 
+# Trollhaus 
 
+What is trust?
 
-# Concept, initial phase
-
-
-
-first, it would be look at known accounts that were blocked and reported by a trusted source. What is trust?
+https://endloop-tiktok.github.io/trollhaus/
 
 
 ## Basics 
+
 As of 3/17/2021 tiktok started allowing JSON data exports
 
 

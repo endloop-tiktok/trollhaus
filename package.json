@@ -11,6 +11,8 @@
     "underscore": "^1.12.1"
   },
   "scripts":{
-  	"build-web":"cat data/blocked_3_21_2021-links.json | ./pagebuilder.js -f empty_shell.html.template > docs/index.html"
+  	"build-web":"cat data/blocked_3_21_2021-links.json | ./pagebuilder.js -f empty_shell.html.template > docs/index.html",
+  	"build-trolls":"cat data/blocked_3_21_2021.json | ./listfilter.js -o -s 'free' | ./linkbuilder.js  | ./pagebuilder.js  -f empty_shell.html.template > docs/trolls.html",
+  	"build-spammers":"cat data/blocked_3_21_2021.json | ./listfilter.js -s 'free' | ./linkbuilder.js  | ./pagebuilder.js  -f empty_shell.html.template > docs/spammers.html"
   }
 }

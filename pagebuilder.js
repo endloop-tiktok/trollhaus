@@ -11,6 +11,7 @@ const program = new Command();
 program
   .version('0.0.1')
   .usage('cat some.json | ./linkbuilder.js | ./pagebuilder.js -f <filepath>')
+  .option('-t, --title <title>', 'page title', 'TikTok Trolls and Spammers')
   .option('-f, --filepath <filepath>', 'HTML file ', null)
 
 program.parse(process.argv);
@@ -47,7 +48,8 @@ process.stdin.on('end', function() {
     const filePath = path.join(process.cwd(), options.filepath);
     const fileRaw = fs.readFileSync(filePath).toString();
     const templateVars = {
-      trolls_list:`<ul>${listString}</ul>`
+      trolls_list:`<ul>${listString}</ul>`,
+      page_title:options.title
     }
 
     const converted = fileRaw.replace(/\$\{([a-zA-Z0-9_]+)\}/, matchAndReplace(templateVars))

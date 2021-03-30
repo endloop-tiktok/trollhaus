@@ -10,9 +10,11 @@ const program = new Command();
 
 program
   .version('0.0.1')
-  .usage('cat some.json | ./linkbuilder.js');
-program.parse(process.argv);  
-const BASE_URL = 'https://www.tiktok.com/@';
+  .usage('cat some.json | ./linkbuilder.js')
+  .option('-o, --opposite', 'negate the startsWith', false)
+  .option('-s, --startsWith <startsWith>', 'username starts with filter', null);
+
+program.parse(process.argv);
 const options = program.opts();
 
 process.stdin.resume();
@@ -30,11 +32,15 @@ process.stdin.on('end', function() {
   }
   let usernames = null;
   if(_.isArray(data)) {
-    usernames = _.pluck(data, 'UserName');  
+
+    const output = data.filter(item=>{
+      if(options.opposite) {
+        return !item.UserName.startsWith(options.startsWith);  
+      }
+      return item.UserName.startsWith(options.startsWith);
+    });
+    process.stdout.write(JSON.stringify(output, null, 2));
   }
-  const converted = usernames.map(item=>{
-    return `<a href="${BASE_URL}${item}">${item}</a>`
-  });
-  process.stdout.write(JSON.stringify(converted, null, 2));
+  
 });  
 // https://www.tiktok.com/@usmcangryveteran?
