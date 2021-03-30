@@ -5,8 +5,19 @@
 	<meta name="robots" content="noindex">
 	<meta name="googlebot" content="noindex">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style type="text/css">
+		.trolls_list {
+			font-size:18pt; 
+		}
+		.trolls_list li {
+			margin:3px 0 5px;
+		}
+	</style>
 </head>
 <body>
-	${trolls_list}
+	<h1>TikTok Trolls and Spammers</h1>
+	<div class="trolls_list">
+		${trolls_list}
+	</div>
 </body>
 </html>
