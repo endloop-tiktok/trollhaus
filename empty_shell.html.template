@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trollhaus</title>
+	<meta name="robots" content="noindex">
+	<meta name="googlebot" content="noindex">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	${some_template}
+</body>
+</html>
