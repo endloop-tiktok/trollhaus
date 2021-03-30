@@ -51,8 +51,7 @@ process.stdin.on('end', function() {
       trolls_list:`<ul>${listString}</ul>`,
       page_title:options.title
     }
-
-    const converted = fileRaw.replace(/\$\{([a-zA-Z0-9_]+)\}/, matchAndReplace(templateVars))
+    const converted = fileRaw.replace(/\$\{([a-zA-Z0-9_]+)\}/g, matchAndReplace(templateVars))
     process.stdout.write(converted);
   }  
 });  
