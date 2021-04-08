@@ -26,5 +26,8 @@
 	<div class="trolls_list">
 		${trolls_list}
 	</div>
+	<div>
+		Last update: ${build_time}
+	</div>
 </body>
 </html>

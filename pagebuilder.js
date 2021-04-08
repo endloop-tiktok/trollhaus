@@ -4,6 +4,7 @@ import commander from 'commander';
 import _ from 'underscore';
 import fs from 'fs';
 import path from 'path'
+import moment from 'moment';
 
 const { Command } = commander;
 const program = new Command();
@@ -48,6 +49,7 @@ process.stdin.on('end', function() {
     const filePath = path.join(process.cwd(), options.filepath);
     const fileRaw = fs.readFileSync(filePath).toString();
     const templateVars = {
+      build_time:moment().format('LLLL'),
       trolls_list:`<ul>${listString}</ul>`,
       page_title:options.title
     }
